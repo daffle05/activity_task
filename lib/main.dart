@@ -1,7 +1,8 @@
 import 'product.dart';
+import 'perishable_product.dart';
 
 void main() {
-  // Create a product
+  // === Base Product Demo ===
   var product = Product("Gaming Mouse", 1500.0, 20, "Electronics");
 
   print("=== Initial Product Info ===");
@@ -35,4 +36,21 @@ void main() {
 
   print("\n=== Final Product Info ===");
   product.displayInfo();
+
+  // === Derived PerishableProduct Demo ===
+  print("\n=== Perishable Product Demo ===");
+  var milk = PerishableProduct(
+    "Fresh Milk",
+    75.0,
+    50,
+    "Dairy",
+    DateTime(2025, 9, 20), // expiration date
+  );
+
+  milk.displayInfo();
+  milk.checkExpiration();
+
+  print("\n--- Selling Perishable ---");
+  milk.sell(10);
+  milk.checkExpiration();
 }
