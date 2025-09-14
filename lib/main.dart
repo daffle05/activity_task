@@ -1,28 +1,34 @@
 import 'product.dart';
 
 void main() {
-  // Create a product object
-  var product = Product("Laptop", 35000.0, 10);
+  // Create a product
+  var product = Product("Gaming Mouse", 1500.0, 20, "Electronics");
 
   print("=== Initial Product Info ===");
   product.displayInfo();
 
   // Test restocking
   print("\n--- Restocking ---");
-  product.restock(5);
+  product.restock(10);
 
   // Test selling
   print("\n--- Selling ---");
-  product.sell(8);
+  product.sell(5);
 
-  // Test price update with validation
+  // Test updating price
   print("\n--- Updating Price ---");
-  product.price = 37000.0;
-  print("Updated price: ₱${product.price}");
+  product.price = 1700.0;
+  print("Updated Price: ₱${product.price}");
 
-  // Try invalid price (will throw an error)
+  // Try invalid actions
   try {
-    product.price = -500;
+    product.sell(50); // More than stock
+  } catch (e) {
+    print("Error: $e");
+  }
+
+  try {
+    product.price = -100; // Invalid price
   } catch (e) {
     print("Error: $e");
   }
