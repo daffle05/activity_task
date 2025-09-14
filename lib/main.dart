@@ -1,5 +1,6 @@
 import 'product.dart';
 import 'perishable_product.dart';
+import 'discounted_product.dart';
 
 void main() {
   // === Base Product Demo ===
@@ -53,4 +54,15 @@ void main() {
   print("\n--- Selling Perishable ---");
   milk.sell(10);
   milk.checkExpiration();
+
+  // === DiscountedProduct Demo ===
+  print("\n=== Discounted Product Demo (no Product edits) ===");
+  var discounted = DiscountedProduct("Phone", 20000, 5, "Electronics", 0.1);
+
+  print("Original Price: ₱${discounted.price}");
+  print("Discounted Price: ₱${discounted.getDiscountedPrice()}");
+
+  discounted.sell(2);
+  print("Remaining stock: ${discounted.getStock()}");
 }
+
