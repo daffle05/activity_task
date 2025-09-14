@@ -1,14 +1,14 @@
 class Product {
-  String name;
-  double price;
+  String _name;
+  double _price;
   int _stock;
 
   Product(this._name, this._price, this._stock);
 
-  // Getter
   String get name => _name;
 
-  // Setter with validation
+  double get price => _price;
+
   set price(double value) {
     if (value > 0) {
       _price = value;
@@ -18,14 +18,26 @@ class Product {
   }
 
   void restock(int amount) {
-    _stock += amount;
+    if (amount > 0) {
+      _stock += amount;
+      print("Restocked $amount items. Total stock: $_stock");
+    } else {
+      throw Exception("Restock amount must be greater than 0");
+    }
   }
 
   void sell(int quantity) {
-    if (quantity <= _stock) {
+    if (quantity <= _stock && quantity > 0) {
       _stock -= quantity;
+      print("Sold $quantity items. Remaining stock: $_stock");
     } else {
-      throw Exception("Not enough stock");
+      throw Exception("Not enough stock or invalid quantity");
     }
+  }
+
+  void displayInfo() {
+    print("Product: $_name");
+    print("Price: \$$_price");
+    print("Stock: $_stock");
   }
 }
