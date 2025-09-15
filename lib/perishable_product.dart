@@ -1,19 +1,16 @@
 import 'product.dart';
 
 class PerishableProduct extends Product {
-  // Unique property
   DateTime expirationDate;
 
-  // Constructor uses super to call Product constructor
   PerishableProduct(
-    String name,
-    double price,
-    int stock,
-    String category,
+    super.name,
+    super.price,
+    super.stock,
+    super.category,
     this.expirationDate,
-  ) : super(name, price, stock, category);
+  );
 
-  // Unique method to check if product is expired
   void checkExpiration() {
     DateTime today = DateTime.now();
     if (today.isAfter(expirationDate)) {
@@ -23,10 +20,9 @@ class PerishableProduct extends Product {
     }
   }
 
-  // Override displayInfo to include expiration date
   @override
   void displayInfo() {
-    super.displayInfo(); // call parent method
+    super.displayInfo(); 
     print("Expiration Date: $expirationDate");
   }
 }

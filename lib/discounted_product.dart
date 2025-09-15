@@ -2,7 +2,7 @@ import 'product.dart';
 
 class DiscountedProduct extends Product {
   double discountRate;
-  int _myStock; // separate stock tracker (not touching Product’s private one)
+  int _myStock; 
 
   DiscountedProduct(
     String name,
@@ -10,14 +10,14 @@ class DiscountedProduct extends Product {
     int stock,
     String category,
     this.discountRate,
-  )   : _myStock = stock, // initialize your own stock
+  )   : _myStock = stock, 
         super(name, price, stock, category);
 
   double getDiscountedPrice() {
     return price * (1 - discountRate);
   }
 
-  // Sell method that manages your own stock
+  @override
   void sell(int quantity) {
     if (quantity <= 0) {
       throw Exception("Quantity must be greater than 0");
