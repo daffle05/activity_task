@@ -1,11 +1,3 @@
-// lib/perishable_product.dart
-//
-// Derived class: PerishableProduct
-// - extends Product
-// - adds unique property: expirationDate
-// - adds unique method: checkExpiration()
-// - overrides displayInfo() to show expiration date
-
 import 'product.dart';
 
 class PerishableProduct extends Product {
@@ -25,9 +17,9 @@ class PerishableProduct extends Product {
   void checkExpiration() {
     DateTime today = DateTime.now();
     if (today.isAfter(expirationDate)) {
-      print("⚠️ Product '$name' has expired on $expirationDate!");
+      print(" Product '$name' has expired on $expirationDate!");
     } else {
-      print("✅ Product '$name' is still valid until $expirationDate.");
+      print(" Product '$name' is still valid until $expirationDate.");
     }
   }
 
