@@ -44,5 +44,5 @@ class Product {
     print("Price: ₱$_price");
     print("Stock: $_stock");
     print("Category: $_category");
-  }-
+  }
 }
