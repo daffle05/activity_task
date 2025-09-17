@@ -1,6 +1,7 @@
 import 'product.dart';
 import 'perishable_product.dart';
 import 'discounted_product.dart';
+import 'premium_product.dart';
 
 void main() {
   var product = Product("Gaming Mouse", 1500.0, 20, "Electronics");
@@ -49,6 +50,7 @@ void main() {
   milk.sell(10);
   milk.checkExpiration();
 
+ 
   print("\n=== Discounted Product Demo (no Product edits) ===");
   var discounted = DiscountedProduct("Phone", 20000, 5, "Electronics", 0.1);
 
@@ -57,5 +59,21 @@ void main() {
 
   discounted.sell(2);
   print("Remaining stock: ${discounted.getStock()}");
-}
 
+  
+  print("\n=== Premium Product Demo ===");
+  var luxuryBag = PremiumProduct(
+    "Luxury Bag",
+    50000.0,
+    3,
+    "Accessories",
+    8000.0, 
+  );
+
+  luxuryBag.displayInfo();
+  luxuryBag.showPremiumPrice();
+
+  print("\n--- Selling Premium Product ---");
+  luxuryBag.sell(1);
+  luxuryBag.displayInfo();
+}
